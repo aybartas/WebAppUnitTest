@@ -18,6 +18,11 @@ namespace WebAppUnitTest.Models
         public int? Stock { get; set; }
         [Required]
         public string Color { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
+        [Required]
+        public Category Category { get; set; }
     }
 
 }

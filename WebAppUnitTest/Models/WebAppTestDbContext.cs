@@ -19,6 +19,7 @@ namespace WebAppUnitTest.Models
         }
 
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +36,11 @@ namespace WebAppUnitTest.Models
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
             });
+
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Pencil" },
+                new Category { Id = 2, Name = "Notebook" }
+                );
 
             OnModelCreatingPartial(modelBuilder);
         }
